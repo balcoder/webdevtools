@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Basic Template</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Vollkorn">
+  <script src="js/scripts.js"></script>
+  <link rel="stylesheet" href="css/styles.css"></link>
+</head>
+<body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#myPage">Logo</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#node">NODE</a></li>
+        <li><a href="#gulp">GULP</a></li>
+        <li><a href="#gulp-plugins">PLUGINS</a></li>
+        <li><a href="#pricing">PRICING</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="jumbotron text-center">
+  <h1>Web Development ToolKit</h1>
+  <p>Setting up a front end build process with NODE & NPM  or NODE & GULP to automate many of the tasks you used to do by hand</p>
+</div>
+<!-- Container for the installation of NODE and NPM -->
+<div id="node" class="container-fluid ">
+ <h1 class="text-center">Installing NODE and NPM </h1>
+ <p>There's a great blog post on CSS Tricks <a href="https://css-tricks.com/why-npm-scripts/" target="_blank">here</a>
+<div class="panel">
+    <div class="panel-heading">
+        <h2 class="text-center">On Windows</h2>
+    </div>
+    <div class="panel-body">
+        <ol>
+            <li>Download the installer from <a href="https://nodejs.org/en/" target="_blank">nodejs.org</a> website</li>
+            <li>Run the installer</li>
+            <li>Follow the instructions</li>
+            <li>Restart the computer</li>
+        </ol>
+        <p>Check that it's working by opening the command prompt or powershell and typing <strong>node -v</strong> once we see a version number we're good.</p>
+        <p><img src="images/cmd-node.png"></img>
+        </p>
+        <p>Now that we have node working we can install sass with the node package manager NPM</p>
+    </div>
+</div>
+<!-- Container for the installation of  GULP with NPM -->
+<div id="gulp" class="container-fluid ">
+ <h1 class="text-center">Installing GULP with NPM </h1>
+   <p>We can install a package locally or globally, we'll need to use gulp on the command line and in or project so we'll need to install it both locally and globally</p>
+<div class="panel">
+    <div class="panel-heading">
+        <h2 class="text-center">On Windows</h2>
+    </div>
+    <div class="panel-body">
+
+            <p>From the command line run the command <strong>npm install gulp -g</strong> to install globally. On Windows you might have to run the command prompt as the administrator <a href="https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx">Instructions here</a>. Once installed globally we need to install locally so cd into your working directory where we'll need to first create a package.json file which is essential when working with projects that use NPM <a href="https://docs.npmjs.com/how-npm-works/packages">info here</a>. Create the package.json file by running the command <strong>npm init</strong> which will walk you through a few questions about your project.</p>
+
+        <p>Example of package.jason
+        <pre>
+          <code>
+            {
+              "name": "webdevtools",
+              "version": "1.0.0",
+              "description": "A website to help set up your wed development enviornment and
+              install some helpfull tools using either gulp or npm scripts",
+              "main": "index.js",
+              "scripts": {
+                "test": "echo \"Error: no test specified\" && exit 1"
+              },
+              "keywords": [],
+              "author": "",
+              "license": "ISC",
+              "devDependencies": {
+
+              }
+            }
+          </code>
+        </pre></p>
+
+        <p>Now that we have a package.json file we can install packages locally as a dependency or a devdependency. A dependency is a package that is needed for the project to run and a devDependency is a package that helps with the development of the web app like sass for example. Now we can install gulp locally with the command <strong>npm install gulp --save-dev</strong>. Once finished gulp will be added to the devDependencies object of the package.json file.
+          <pre>
+            <code>
+              "devDependencies": {
+                "gulp": "^3.9.1"
+              }
+            </code>
+          </pre>
+        </fieldset></p>
+    </div>
+</div>
+
+ <!-- Container for the installation of Gulp plugins -->
+<div id="gulp-plugins" class="container-fluid">
+    <h1 class="text-center">Installing GULP plugins</h1>
+    <div class="panel">
+        <div class="panel-body">
+          <p>We will be installing browser-sync, gulp-autoprefixer, gulp-imagemin, gulp-sass, and gulp-sourcemaps</p>
+            <ol>
+                <li>Open up a command prompt or powershell and execute the following commands</li>
+                <li><strong>npm install --save-dev browser-sync</strong><br>syncs your project in the browser </li>
+                <li><strong>npm install --save-dev gulp-autoprefixer</strong><br>automatically adds vendor prefixes to your code</li>
+                <li><strong>npm install --save-dev gulp-imagemin</strong><br>compresses gif, png, jpeg, svg files</li>
+                <li><strong>npm install --save-dev gulp-sass</strong><br>a preprocessor for css</li>
+                <li><strong>npm install --save-dev gulp-sourcemaps</strong><br>maps your original sass line numbers with your processed css file for debugging</li>
+            </ol>
+                    <div>
+                      <p>Now our devDependencies object should look like this in package.json</p>
+                    <pre>
+                    <code>
+                      "devDependencies": {
+                        "browser-sync": "^2.18.8",
+                        "gulp": "^3.9.1",
+                        "gulp-autoprefixer": "^3.1.1",
+                        "gulp-imagemin": "^3.2.0",
+                        "gulp-sass": "^3.1.0",
+                        "gulp-sourcemaps": "^2.6.0"
+                      }
+                    }
+                    </code>
+                  </pre>
+                    </div>
+              <p>To make these plugins work we need a file called gulpfile.js to run and configure them. Before writing the gulpfile we need to set up our folder structure in our project like below with a dist folder containing empty images and css folders to hold the processed files for production. A src folder with images folder to hold original images and a sass folder to hold all our sass partials and a styles.scss file for all our sass styles</p>
+               <div> <img src="images\dir-tree.png" alt="project folder structure"></div>
+               <p>Open up your favorite text editor and type in the following into your gulpfile.js and save it to the parent directory of your project folder</p>
+               <pre>
+                 <code>
+
+                   // create variables to require each plugin
+                   var gulp = require('gulp');
+                   //we chain .create to require to create a server that listens for changes and updates the browser
+                   var browserSync = require('browser-sync').create();
+                   var autoprefixer = require('gulp-autoprefixer');
+                   var imagemin = require('gulp-imagemin');
+                   var sass = require('gulp-sass');
+                   var sourcemaps = require('gulp-sourcemaps');
+
+                   // create our gulp tasks using the variables we created above
+
+                   //call gulp.task and name it css supplying a function that returns our source
+                   //folder which we run our tasks on with the pipe function
+                   gulp.task('css', function() {
+                     //use globbing to search for all .scss file to process in our sass folder
+                   	return gulp.src('src/sass/**/*.scss')
+                   		.pipe(sourcemaps.init())
+                   		.pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
+                   		.pipe(autoprefixer({
+                               browsers: ['last 2 versions']
+                           }))
+                       .pipe(sourcemaps.write('./maps'))
+                       //call gulp.dest with our dist folder path to write the processed files
+                   		.pipe(gulp.dest('dist/css'))
+                   		.pipe(browserSync.stream())
+                   });
+
+                   //run imagmin manually from cli once on all images in src/images and write to dist/images
+                   gulp.task('images', function(){
+                   	return gulp.src('src/images/*')
+                   		.pipe(imagemin())
+                   		.pipe(gulp.dest('dist/images'))
+                   });
+
+                   //copy any files that are not processed to the dist folder
+                   gulp.task('copy', function() {
+                   	return gulp.src('src/**/*.+(html|js)')
+                   		.pipe(gulp.dest('dist'))
+                   		.pipe(browserSync.stream())
+                   });
+
+                   //initialise browserSync pointing it to our distribution folder
+                   gulp.task('browserSync', function() {
+                   	browserSync.init({
+                   		server: {
+                   			baseDir: 'dist'
+                   		},
+                   	})
+                   });
+
+                   //create a watch task passing in an array of tasks to run before anything else
+                   gulp.task('watch', ['browserSync', 'css'], function(){
+                     //then watch for changes in sass for .scss and src for html or js running css
+                     // or copy tasks respectively
+                   	gulp.watch('src/sass/**/*.scss', ['css']);
+                   	gulp.watch('src/**/*.+(html|js)', ['copy']);
+                   });
+
+                 </code>
+               </pre>
+              <p>Now all we need to do is run <strong>gulp watch</strong> from our project directory and our gulp tasks browserSync and css will run opening up a borwser updating any changed files in our src folder to the dist folder and watching for any future changes in the src folder while keeping the browser in sync. Pretty cool huh!</p>
+
+        </div>
+    </div>
+</div>
+
+<!-- Container for the installation of Git -->
+<div id="sass" class="container-fluid">
+   <h1 class="text-center">Installing Sass with NODE NPM</h1>
+   <div class="panel">
+       <div class="panel-heading">
+           <h2>On Windows</h2>
+       </div>
+       <div class="panel-body">
+         <p> Download the installer from <a href="https://git-scm.com/downloads">git-scm.com</a> website and run and follow the instruction to install Git Version Control</p>
+       </div>
+   </div>
+</div>
+<div>
+  <pre>
+    <code>
+        &lt;div class=&quot;panel-body&quot;&gt;<br/>            &lt;ol&gt;<br/>                &lt;li&gt;Open up a command prompt or powershell&lt;/li&gt;<br/>                &lt;li&gt;Depending on where you want to install node-sass type &lt;strong&gt;npm install -g node-sass&lt;/strong&gt; to install globally or navigate to your project directory and type &lt;strong&gt;npm install --save-dev node-sass&lt;/strong&gt; to install in your project directory and make it part of your dependencies&lt;/li&gt;<br/>                &lt;li&gt;Best practices suggest installing in your project directory and making it part of your dependencies&lt;/li&gt;<br/>                &lt;li&gt;We will be installing locally and using a package.jason file&lt;/li&gt;<br/>                &lt;li&gt;Create a package.jason file in your project directory&lt;/li&gt;<br/>            &lt;/ol&gt;<br/>        &lt;/div&gt;
+    </code>
+  </pre>
+</div>
+
+
+</body>
+</html>
