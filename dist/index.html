@@ -37,40 +37,49 @@
 
 <div class="jumbotron text-center">
   <h1>Web Development ToolKit</h1>
-  <p>Setting up a front end build process with NODE & NPM  or NODE & GULP to automate many of the tasks you used to do by hand</p>
+  <p>Setting up a front end build process with either NODE & NPM Scripts or NODE & GULP to automate many of the tasks you used to do by hand</p>
 </div>
 <!-- Container for the installation of NODE and NPM -->
-<div id="node" class="container-fluid ">
- <h1 class="text-center">Installing NODE and NPM </h1>
- <p>There's a great blog post on CSS Tricks <a href="https://css-tricks.com/why-npm-scripts/" target="_blank">here</a>
-<div class="panel">
-    <div class="panel-heading">
-        <h2 class="text-center">On Windows</h2>
-    </div>
-    <div class="panel-body">
-        <ol>
-            <li>Download the installer from <a href="https://nodejs.org/en/" target="_blank">nodejs.org</a> website</li>
-            <li>Run the installer</li>
-            <li>Follow the instructions</li>
-            <li>Restart the computer</li>
-        </ol>
-        <p>Check that it's working by opening the command prompt or powershell and typing <strong>node -v</strong> once we see a version number we're good.</p>
-        <p><img src="images/cmd-node.png"></img>
-        </p>
-        <p>Now that we have node working we can install sass with the node package manager NPM</p>
-    </div>
+<div id="node" class="container-fluid">
+   <h1 class="text-center">Installing NODE and NPM </h1>
+   <p>In order to use the gulp build tool/taskrunner  we're going to have to install Node and then use the Node Package Manager (NPM) to install it. "The npm registry hosts almost half a million packages of free, reusable code — the largest software registry in the world"<a href="https://www.npmjs.com/"> npm website here</a>. There's a great blog post by  Damon Bauer on CSS Tricks <a href="https://css-tricks.com/why-npm-scripts/" target="_blank">here</a></p>
+  <div class="panel">
+      <div class="panel-heading">
+          <h2 class="text-center">On Windows</h2>
+      </div>
+      <div class="panel-body">
+          <ol>
+              <li>Download the installer from <a href="https://nodejs.org/en/" target="_blank">nodejs.org</a> website</li>
+              <li>Run the installer</li>
+              <li>Follow the instructions</li>
+              <li>Restart the computer</li>
+          </ol>
+          <p>Check that it's working by opening the command prompt or powershell and typing <br> <code>node -v</code> <br> once we see a version number we're good.</p>
+          <p><img src="images/cmd-node.png"></img>
+          </p>
+          <p>Now that we have node working we can install Gulp with the node package manager NPM</p>
+      </div>
+  </div>
 </div>
+<!-- Container for the using NPM Scripts -->
+<div id="npm-scripts" class="container-fluid">
+  <h1 class="text-center">Using NPM Scripts for your Web Dev build tools</h1>
+  <p>Some people are moving over to npm scripts for their build tools instead of gulp and grunt etc. One of the reasons being that you already have node and npm installed so why not just use scripts with npm. To make these buildtools work we need a file called package.json to run and configure them. Before writing the package.json we need to set up our folder structure in our project like below with a distribution folder called dist containing empty images and css folders to hold the processed files for production that our npm plugins will process. A src folder with images folder to hold original images and a sass folder to hold all our sass partials and a styles.scss file for all our sass styles</p>
+   <div> <img src="images\dir-tree.png" alt="project folder structure"></div>
+</div>
+
+
 <!-- Container for the installation of  GULP with NPM -->
 <div id="gulp" class="container-fluid ">
  <h1 class="text-center">Installing GULP with NPM </h1>
-   <p>We can install a package locally or globally, we'll need to use gulp on the command line and in or project so we'll need to install it both locally and globally</p>
+   <p>"Gulp is a toolkit that helps you automate painful or time-consuming tasks in your development workflow"<a href="http://gulpjs.com/">check it out here.</a> We can install a package locally or globally, we'll need to use gulp on the command line and in or project so we'll need to install it both locally and globally</p>
 <div class="panel">
     <div class="panel-heading">
         <h2 class="text-center">On Windows</h2>
     </div>
     <div class="panel-body">
 
-            <p>From the command line run the command <strong>npm install gulp -g</strong> to install globally. On Windows you might have to run the command prompt as the administrator <a href="https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx">Instructions here</a>. Once installed globally we need to install locally so cd into your working directory where we'll need to first create a package.json file which is essential when working with projects that use NPM <a href="https://docs.npmjs.com/how-npm-works/packages">info here</a>. Create the package.json file by running the command <strong>npm init</strong> which will walk you through a few questions about your project.</p>
+            <p>From the command line run the command <br><code>npm install gulp -g</code> <br>to install globally. On Windows you might have to run the command prompt as the administrator <a href="https://technet.microsoft.com/en-us/library/cc947813(v=ws.10).aspx">Instructions here</a>. Once installed globally we need to install locally so cd into your working directory where we'll need to first create a package.json file which is essential when working with projects that use NPM <a href="https://docs.npmjs.com/how-npm-works/packages">info here</a>. Create the package.json file by running the command <br><code>npm init</code><br> which will walk you through a few questions about your project.</p>
 
         <p>Example of package.jason
         <pre>
@@ -78,7 +87,7 @@
             {
               "name": "webdevtools",
               "version": "1.0.0",
-              "description": "A website to help set up your wed development enviornment and
+              "description": "A website to help set up your web development enviornment and
               install some helpfull tools using either gulp or npm scripts",
               "main": "index.js",
               "scripts": {
@@ -94,7 +103,7 @@
           </code>
         </pre></p>
 
-        <p>Now that we have a package.json file we can install packages locally as a dependency or a devdependency. A dependency is a package that is needed for the project to run and a devDependency is a package that helps with the development of the web app like sass for example. Now we can install gulp locally with the command <strong>npm install gulp --save-dev</strong>. Once finished gulp will be added to the devDependencies object of the package.json file.
+        <p>Now that we have a package.json file we can install packages locally as a dependency or a devdependency. A dependency is a package that is needed for the project to run and a devDependency is a package that helps with the development of the web app like sass for example. Now we can install gulp locally with the command <br> <code>npm install gulp --save-dev</code><br> Once finished gulp will be added to the devDependencies object of the package.json file.
           <pre>
             <code>
               "devDependencies": {
@@ -105,6 +114,7 @@
         </fieldset></p>
     </div>
 </div>
+</div>
 
  <!-- Container for the installation of Gulp plugins -->
 <div id="gulp-plugins" class="container-fluid">
@@ -114,11 +124,11 @@
           <p>We will be installing browser-sync, gulp-autoprefixer, gulp-imagemin, gulp-sass, and gulp-sourcemaps</p>
             <ol>
                 <li>Open up a command prompt or powershell and execute the following commands</li>
-                <li><strong>npm install --save-dev browser-sync</strong><br>syncs your project in the browser </li>
-                <li><strong>npm install --save-dev gulp-autoprefixer</strong><br>automatically adds vendor prefixes to your code</li>
-                <li><strong>npm install --save-dev gulp-imagemin</strong><br>compresses gif, png, jpeg, svg files</li>
-                <li><strong>npm install --save-dev gulp-sass</strong><br>a preprocessor for css</li>
-                <li><strong>npm install --save-dev gulp-sourcemaps</strong><br>maps your original sass line numbers with your processed css file for debugging</li>
+                <li><code>npm install --save-dev browser-sync</code><br>syncs your project in the browser </li>
+                <li><code>npm install --save-dev gulp-autoprefixer</code><br>automatically adds vendor prefixes to your code</li>
+                <li><code>npm install --save-dev gulp-imagemin</code><br>compresses gif, png, jpeg, svg files</li>
+                <li><code>npm install --save-dev gulp-sass</code><br>a preprocessor for css</li>
+                <li><code>npm install --save-dev gulp-sourcemaps</code><br>maps your original sass line numbers with your processed css file for debugging</li>
             </ol>
                     <div>
                       <p>Now our devDependencies object should look like this in package.json</p>
@@ -136,9 +146,9 @@
                     </code>
                   </pre>
                     </div>
-              <p>To make these plugins work we need a file called gulpfile.js to run and configure them. Before writing the gulpfile we need to set up our folder structure in our project like below with a dist folder containing empty images and css folders to hold the processed files for production. A src folder with images folder to hold original images and a sass folder to hold all our sass partials and a styles.scss file for all our sass styles</p>
+              <p>To make these plugins work we need a file called gulpfile.js to run and configure them. Before writing the gulpfile we need to set up our folder structure in our project like below with a distribution folder called dist containing empty images and css folders to hold the processed files for production that our gulp plugins will process. A src folder with images folder to hold original images and a sass folder to hold all our sass partials and a styles.scss file for all our sass styles</p>
                <div> <img src="images\dir-tree.png" alt="project folder structure"></div>
-               <p>Open up your favorite text editor and type in the following into your gulpfile.js and save it to the parent directory of your project folder</p>
+               <p>Open up your favorite text editor and type in the following into your gulpfile.js and save it to the parent directory of your project folder. Read the comments for an explanation of what the code does.</p>
                <pre>
                  <code>
 
@@ -202,7 +212,7 @@
 
                  </code>
                </pre>
-              <p>Now all we need to do is run <strong>gulp watch</strong> from our project directory and our gulp tasks browserSync and css will run opening up a borwser updating any changed files in our src folder to the dist folder and watching for any future changes in the src folder while keeping the browser in sync. Pretty cool huh!</p>
+              <p>Now all we need to do is run <br><code>gulp watch</code> <br> from our project directory and our gulp tasks browserSync and css will run opening up a borwser updating any changed files in our src folder to the dist folder and watching for any future changes in the src folder while keeping the browser in sync. Pretty cool huh!</p>
 
         </div>
     </div>
@@ -210,24 +220,52 @@
 
 <!-- Container for the installation of Git -->
 <div id="sass" class="container-fluid">
-   <h1 class="text-center">Installing Sass with NODE NPM</h1>
-   <div class="panel">
-       <div class="panel-heading">
-           <h2>On Windows</h2>
-       </div>
-       <div class="panel-body">
-         <p> Download the installer from <a href="https://git-scm.com/downloads">git-scm.com</a> website and run and follow the instruction to install Git Version Control</p>
-       </div>
-   </div>
-</div>
-<div>
-  <pre>
-    <code>
-        &lt;div class=&quot;panel-body&quot;&gt;<br/>            &lt;ol&gt;<br/>                &lt;li&gt;Open up a command prompt or powershell&lt;/li&gt;<br/>                &lt;li&gt;Depending on where you want to install node-sass type &lt;strong&gt;npm install -g node-sass&lt;/strong&gt; to install globally or navigate to your project directory and type &lt;strong&gt;npm install --save-dev node-sass&lt;/strong&gt; to install in your project directory and make it part of your dependencies&lt;/li&gt;<br/>                &lt;li&gt;Best practices suggest installing in your project directory and making it part of your dependencies&lt;/li&gt;<br/>                &lt;li&gt;We will be installing locally and using a package.jason file&lt;/li&gt;<br/>                &lt;li&gt;Create a package.jason file in your project directory&lt;/li&gt;<br/>            &lt;/ol&gt;<br/>        &lt;/div&gt;
-    </code>
-  </pre>
+  <h1 class="text-center">Installing Sass with NODE NPM</h1>
+  <div class="panel">
+    <div class="panel-heading">
+      <h2 class="text-center">On Windows</h2>
+    </div>
+    <div class="panel-body">
+      <p> Download the installer from <a href="https://git-scm.com/downloads">git-scm.com</a> website and run and follow the instruction to install Git Version Control for your OS. The Git workflow is based on  <strong>Initialize -> Track -> Commit -> Push</strong>. First off let's define a couple of global settings.</p>
+      <p>
+        <pre>
+        <code>
+          git config --global user.name "name"
+          git config --global user.email "myname@gmail.com"
+          git config --global color.ui "auto"
+        </code>
+      </pre>
+      </p>
+      <p>These settings are stored in the .gitconfig file where you can edit them and which you can list by entering <br> <code>git config --list</code> <br>Open up your project folder with your terminal/command line app and let's start tracking changes on this folder by running <br><code>git init</code> <br> This will create a .git directory in your project which contains all information realting to git. You should never have to edit anything in the .git directory. Once you've added a few files and folders to the project we can check the status of our repository using... <br> <code>git status</code> <br>   </p>
+      <p>
+        <pre>
+        <code>
+          $ git status
+          On branch master
+          Changes not staged for commit:
+            (use "git add <file>..." to update what will be committed)
+            (use "git checkout -- <file>..." to discard changes in working directory)
+
+                  modified:   dist/css/maps/styles.css.map
+                  modified:   dist/css/styles.css
+                  modified:   dist/index.html
+                  modified:   src/index.html
+                  modified:   src/sass/styles.scss
+
+          no changes added to commit (use "git add" and/or "git commit -a")
+
+        </code>
+      </pre>
+      </p>
+    </div>
+  </div>
 </div>
 
+<!-- Footer -->
+<footer class="footer text-center">
+  <p>“A little more persistence, a little more effort, and what seemed hopeless failure may turn to glorious success.”</code></p>
+  <p>"Always remember that good enough and done are better than perfect."</code></p>
+</footer>
 
 </body>
 </html>
