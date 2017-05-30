@@ -236,7 +236,7 @@
         </code>
       </pre>
       </p>
-      <p>These settings are stored in the .gitconfig file where you can edit them and which you can list by entering <br> <code>git config --list</code> <br>Open up your project folder with your terminal/command line app and let's start tracking changes on this folder by running <br><code>git init</code> <br> This will create a .git directory in your project which contains all information realting to git. You should never have to edit anything in the .git directory. Once you've added a few files and folders to the project we can check the status of our repository using... <br> <code>git status</code> <br>   </p>
+      <p>These settings are stored in the .gitconfig file where you can edit them and which you can list by entering <br> <code>git config --list</code> <br>Open up your project folder with your terminal/command line app and let's start tracking changes on this folder by running <br><code>git init</code> <br> This will create a .git directory in your project which contains all information realting to git. You should never have to edit anything in the .git directory. Once you've added a few files and folders to the project we can check the status of our repository using <br> <code>git status</code> <br> This will show us any changes that haven't been added for commit. </p>
       <p>
         <pre>
         <code>
@@ -257,6 +257,38 @@
         </code>
       </pre>
       </p>
+      <p>We can add these by running <br><code>git add .</code><br>this will add all the files shown to the staging area for commit.</p>
+      <p>
+        <pre>
+        <code>
+          $ git status
+          On branch master
+          Changes to be committed:
+            (use "git reset HEAD <file>..." to unstage)
+
+                  modified:   dist/css/maps/styles.css.map
+                  modified:   dist/css/styles.css
+                  modified:   dist/index.html
+                  modified:   src/index.html
+                  modified:   src/sass/styles.scss
+
+        </code>
+      </pre>
+      </p>
+      <p>Now we are ready to make our first commit using <br><code>git commit -m "Added styles and content for gulp install section"</code><br>where -m stands for message and "Added styles and content for gulp install section" is the message. We need to make the message meaningful.</p>
+      <p>
+        <pre>
+        <code>
+
+          $git commit -m "Added styles and content for gulp install section"
+          [master 943a805] Added styles and content for gulp install section
+           5 files changed, 195 insertions(+), 101 deletions(-)
+           rewrite dist/css/maps/styles.css.map (86%)
+
+        </code>
+      </pre>
+      </p>
+
     </div>
   </div>
 </div>
